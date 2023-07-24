@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat App</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style>
+      #chat-box {
+        max-height: 350px;
+        overflow-y: scroll;
+      }
+      
+    </style>
+  </head>
+  <body style="background-color: #12808c;">
+    <nav class="navbar navbar-default" style="background-color: #09518f;">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <h4 style="color:aliceblue;">Chat App</h4>
+            <!--<a class="navbar-brand" href="#" style="color: azure;"><center>Chat App</center></a>-->
+          </div>
+          <div>
+             <button class="btn btn-primary sm" style="float: right; margin-top: 7px;" id="logout">LogOut</button>
+          </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="panel panel-default">
+              <div class="panel-heading" style="background-color: #09518f;">
+                <h3 class="panel-title" style="color: beige;">Chat Groups</h3>
+              </div>
+              <form>
+                <div class="form-group">
+                  <input type="text" class="form-control" id="create-group" placeholder="Group Name">
+                  <input type="text" id="invite-users-input" placeholder="Invite Users" style="display: none;"/>
+                  <button id="adduser" class="btn btn-primary" style="display: none;">Add User</button>
+                </div>
+                <button type="submit" class="btn btn-primary" id="add-group">Add group</button>
+              </form>
+              <hr>
+              <div class="panel-body">
+                <!-- Chat groups here -->
+                <ul class="list-group" id="chat-user-group">
+                    
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-8">
+            <div class="panel panel-default">
+              <div class="panel-body" >
+                <!-- Chat messages here -->
+                <ul class="list-group" id="chat-box">
+
+                </ul>
+              </div>
+              <div class="panel-footer">
+                <form>
+                  <div class="form-group">
+                    <input type="text" class="form-control" id="chat-msg" placeholder="Type your message here">
+                  </div>
+                  <button type="submit" class="btn btn-primary" id="sendmsg">Send</button>
+                  <input type="file" id="file-input" style="float: right;"/>
+                  <button class="btn btn-primary" id="multimedia">Send Pic</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    <script defer src="http://localhost:4000/socket.io/socket.io.js"></script>
+    <script defer src="chat.js"></script>     
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </body>
+</html>
